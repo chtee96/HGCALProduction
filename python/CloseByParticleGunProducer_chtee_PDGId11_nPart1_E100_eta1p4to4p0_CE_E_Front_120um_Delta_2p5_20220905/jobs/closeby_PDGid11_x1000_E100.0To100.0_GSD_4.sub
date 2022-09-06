@@ -1,0 +1,10 @@
++JobFlavour = "tomorrow" 
+
+executable  = /afs/cern.ch/user/c/chtee/HGCAL_production/CMSSW_12_3_0_pre6/src/HGCalValidator/HGCalProduction/python/../scripts/SubmitFileGSD.sh 
+arguments   = $(ClusterID) $(ProcId) /afs/cern.ch/user/c/chtee/HGCAL_production/CMSSW_12_3_0_pre6/src/HGCalValidator/HGCalProduction/python CloseByParticleGunProducer_chtee_PDGId11_nPart1_E100_eta1p4to4p0_CE_E_Front_120um_Delta_2p5_20220905 closeby_PDGid11_x1000_E100.0To100.0_GSD_4.py dummy dummy False CMSSW_12_3_0_pre6 /afs/cern.ch/user/c/chtee/HGCAL_production/CMSSW_12_3_0_pre6 slc7_amd64_gcc10 /eos/user/c/chtee/CalibrationStudies GSD False
+output      = CloseByParticleGunProducer_chtee_PDGId11_nPart1_E100_eta1p4to4p0_CE_E_Front_120um_Delta_2p5_20220905/std/closeby_PDGid11_x1000_E100.0To100.0_GSD_4.out 
+error       = CloseByParticleGunProducer_chtee_PDGId11_nPart1_E100_eta1p4to4p0_CE_E_Front_120um_Delta_2p5_20220905/std/closeby_PDGid11_x1000_E100.0To100.0_GSD_4.err 
+log         = CloseByParticleGunProducer_chtee_PDGId11_nPart1_E100_eta1p4to4p0_CE_E_Front_120um_Delta_2p5_20220905/std/closeby_PDGid11_x1000_E100.0To100.0_GSD_4_htc.log 
+
+max_retries = 1
+queue 
