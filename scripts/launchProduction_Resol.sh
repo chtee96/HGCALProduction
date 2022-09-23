@@ -1,6 +1,6 @@
 #!/bin/bash
 
-thedate="20220905"
+thedate="20220923"
 
 #Close by photons - No second particle will be generated. 
 
@@ -14,8 +14,8 @@ then
   echo \#-----
   #echo python production_withdeltas.py --datTier GSD --nevts 10000 --evtsperjob 1000 --queue tomorrow --partID 22 --nPart 1 --zMin 320.99 --zMax 321.01 --rMin 54.99 --rMax 55.01 --gunMode closeby --eosArea /eos/cms/store/group/dpg_hgcal/comm_hgcal/apsallid/CalibrationStudies --tag CE_E_Front_120um 
   #python production_withdeltas.py --datTier GSD --nevts 10000 --evtsperjob 1000 --queue tomorrow --partID 22 --nPart 1 --zMin 320.99 --zMax 321.01 --rMin 54.99 --rMax 55.01 --gunMode closeby --eosArea /eos/cms/store/group/dpg_hgcal/comm_hgcal/apsallid/CalibrationStudies --tag CE_E_Front_120um 
-  echo python production_withdeltas.py --datTier GSD --nevts 10000 --evtsperjob 1000 --queue tomorrow --partID 11 --nPart 1 --zMin 320.99 --zMax 321.01 --rMin 54.99 --rMax 55.01 --gunMode closeby --eosArea /eos/user/c/chtee/CalibrationStudies --tag CE_E_Front_120um 
-  python production_withdeltas.py --datTier GSD --nevts 10000 --evtsperjob 1000 --queue tomorrow --partID 11 --nPart 1 --zMin 320.99 --zMax 321.01 --rMin 54.99 --rMax 55.01 --gunMode closeby --eosArea /eos/user/c/chtee/CalibrationStudies --tag CE_E_Front_120um
+  echo python production_withdeltas.py --datTier GSD --nevts 1000 --evtsperjob 100 --queue workday --partID 11 --nPart 1 --zMin 320.99 --zMax 321.01 --rMin 54.99 --rMax 55.01 --gunMode closeby --eosArea /eos/user/c/chtee/CalibrationStudies --tag CE_E_Front_120um 
+  python production_withdeltas.py --datTier GSD --nevts 1000 --evtsperjob 100 --queue workday --partID 11 --nPart 1 --zMin 320.99 --zMax 321.01 --rMin 54.99 --rMax 55.01 --gunMode closeby --eosArea /eos/user/c/chtee/CalibrationStudies --tag CE_E_Front_120um
 fi
 
 #--------------------------------------------------------------------------
@@ -33,8 +33,8 @@ then
       echo "----- $i ------"
       #echo python production_withdeltas.py --datTier RECO --evtsperjob 1000 --queue tomorrow --partID 22 --nPart 1 --eosArea /eos/cms/store/group/dpg_hgcal/comm_hgcal/apsallid/CalibrationStudies --gunMode closeby --date ${thedate} --tag $i
       #python production_withdeltas.py --datTier RECO --evtsperjob 1000 --queue tomorrow --partID 22 --nPart 1 --eosArea /eos/cms/store/group/dpg_hgcal/comm_hgcal/apsallid/CalibrationStudies --gunMode closeby --date ${thedate} --tag $i
-      echo python production_withdeltas.py --datTier RECO --evtsperjob 1000 --queue tomorrow --partID 11 --nPart 1 --eosArea /eos/user/c/chtee/CalibrationStudies --gunMode closeby --date ${thedate} --tag $i
-      python production_withdeltas.py --datTier RECO --evtsperjob 1000 --queue tomorrow --partID 11 --nPart 1 --eosArea /eos/user/c/chtee/CalibrationStudies --gunMode closeby --date ${thedate} --tag $i
+      echo python production_withdeltas.py --datTier RECO --evtsperjob 100 --queue workday --partID 11 --nPart 1 --eosArea /eos/user/c/chtee/CalibrationStudies --gunMode closeby --date ${thedate} --tag $i
+      python production_withdeltas.py --datTier RECO --evtsperjob 100 --queue workday --partID 11 --nPart 1 --eosArea /eos/user/c/chtee/CalibrationStudies --gunMode closeby --date ${thedate} --tag $i
       
   done
 
