@@ -78,8 +78,8 @@ if opt.PARTID == '22':
 #CLOSE BY PHOTONS
 #if opt.PARTID == '22,22': 
 if opt.PARTID == '11': 
-    #En = [20,60,100]
-    En = [2,3,5,8,10,15,30,50,80,100,120,150,180,200,250,300,400,500,600]#60
+    En = [5,10,20,60,100,250,320,500]
+    #En = [2,3,5,8,10,15,30,50,80,100,120,150,180,200,250,300,400,500,600]#60
     Eta = [1.4,4.0]
     #Deltas = [2.5,5.0,7.5,15.0]
     Deltas = [2.5]
@@ -102,9 +102,7 @@ if (opt.DTIER == 'GSD'):
     if (opt.gunMode == 'closeby'):
         for theEn in En:
             for theDelta in Deltas:
-                
                 cmd = 'python SubmitHGCalPGun.py --datTier GSD --nevts ' + str(opt.NEVTS) +' --evtsperjob '+ str(opt.EVTSPERJOB) +' --queue '+ opt.QUEUE + ' --partID ' + str(opt.PARTID) + ' --nPart ' + str(opt.NPART) + ' --nRandomPart ' + str(opt.NRANDOMPART)+  ' --thresholdMin ' + str(theEn) + ' --thresholdMax ' + str(theEn) + ' --etaMin ' + str(Eta[0]) + ' --etaMax ' + str(Eta[1]) + ' --zMin ' + str(opt.zMin) + ' --zMax ' + str(opt.zMax) + ' --rMin ' + str(opt.rMin) + ' --rMax ' + str(opt.rMax) + ' --gunType E --gunMode closeby --eosArea ' + opt.eosArea + ' --tag ${USER}_PDGId%s_nPart%s_E%s_eta%sto%s_%s_Delta_%s --Delta %s' % (opt.PARTID.replace(',','_'),opt.NPART,theEn,str(Eta[0]).replace('.','p'),str(Eta[1]).replace('.','p'),opt.TAG, str(theDelta).replace('.','p'), str(theDelta))
-                print("FOR GSD"+opt.eosArea)
                 if opt.pointing == False: 
                     cmd = cmd + ' --pointing '
                 if opt.overlapping == True: 
