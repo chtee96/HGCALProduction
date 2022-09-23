@@ -176,7 +176,8 @@ def getInputFileList(DASquery,inPath, inSubDir, local, pattern):
             inputList = [f for f in os.listdir(inPath+'/'+inSubDir) if (os.path.isfile(os.path.join(inPath+'/'+inSubDir, f)) and (fnmatch.fnmatch(f, pattern)))]
         else:
             # this is a work-around, need to find a proper way to do it for EOS
-            inputList = [f for f in processCmd(eosExec + ' ls ' + inPath+'/'+inSubDir+'/').split('\n') if ( (processCmd(eosExec + ' fileinfo ' + inPath+'/'+inSubDir+'/' + f).split(':')[0].lstrip() == 'File') and (fnmatch.fnmatch(f, pattern)))]
+            #inputList = [f for f in processCmd(eosExec + ' ls ' + inPath+'/'+inSubDir+'/').split('\n') if ( (processCmd(eosExec + ' fileinfo ' + inPath+'/'+inSubDir+'/' + f).split(':')[0].lstrip() == 'File') and (fnmatch.fnmatch(f, pattern)))]
+            inputList = [f for f in processCmd(' ls ' + inPath+'/'+inSubDir+'/').split('\n') if  (fnmatch.fnmatch(f, pattern)) ]
     else:
         # DASquery will be made based on inPath (i.e. opt.RELVAL)
 
@@ -288,11 +289,13 @@ def submitHGCalProduction(*args, **kwargs):
         if (opt.DQM): processCmd('mkdir -p '+outDir+'/DQM/')
     elif opt.eosArea:
         if opt.DTIER != 'ALL':
-            processCmd(eosExec + ' mkdir -p '+opt.eosArea+'/'+outDir+'/'+opt.DTIER+'/');
+            #processCmd(eosExec + ' mkdir -p '+opt.eosArea+'/'+outDir+'/'+opt.DTIER+'/');
+            processCmd('mkdir -p '+opt.eosArea+'/'+outDir+'/'+opt.DTIER+'/' )
         else:
             processCmd(eosExec + ' mkdir -p '+opt.eosArea+'/'+outDir+'/NTUP/');
-        recoInputPrefix = 'root://eoscms.cern.ch/'+opt.eosArea+'/'+opt.inDir+'/'+previousDataTier+'/'
-        if (opt.DQM): processCmd(eosExec + ' mkdir -p '+opt.eosArea+'/'+outDir+'/DQM/')
+        #recoInputPrefix = 'root://eoscms.cern.ch/'+opt.eosArea+'/'+opt.inDir+'/'+previousDataTier+'/'
+        recoInputPrefix ='file:'+opt.eosArea+'/'+opt.inDir+'/'+previousDataTier+'/'
+        if (opt.DQM): processCmd(' mkdir -p '+opt.eosArea+'/'+outDir+'/DQM/')
     # in case of relval always take reconInput from /store...
     if DASquery: recoInputPrefix=''
 
